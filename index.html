@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nengo Hill Adventure | Hiking, Camping & Tours in Gisenyi, Rwanda</title>
+<title>Nengo Hill Adventure | Hiking, Camping &amp; Tours in Gisenyi, Rwanda</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<!-- QR Code library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
 :root {
@@ -54,7 +53,7 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .tab-content{display:none;position:relative;z-index:1;min-height:calc(100vh - 53px);}
 .tab-content.active{display:block;}
 
-/* ── BOOKING TAB ── */
+/* ── BOOKING HERO ── */
 .booking-hero{text-align:center;padding:50px 24px 30px;}
 .hero-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);border:1px solid rgba(232,184,75,.35);padding:5px 16px;border-radius:20px;margin-bottom:18px;background:rgba(232,184,75,.06);}
 .booking-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:900;line-height:1.05;margin-bottom:12px;}
@@ -178,7 +177,7 @@ label{font-size:.72rem;font-family:'DM Mono',monospace;text-transform:uppercase;
 
 /* ── ADMIN LAYOUT ── */
 .admin-wrap{display:flex;min-height:calc(100vh - 53px);}
-.admin-sidebar{width:220px;flex-shrink:0;background:rgba(20,36,20,.7);border-right:1px solid rgba(74,124,74,.15);padding:20px 0;}
+.admin-sidebar{width:220px;flex-shrink:0;background:rgba(20,36,20,.7);border-right:1px solid rgba(74,124,74,.15);padding:20px 0;display:flex;flex-direction:column;}
 .adm-nav-item{display:flex;align-items:center;gap:10px;padding:11px 22px;font-size:.83rem;color:var(--stone);cursor:pointer;transition:all .18s;border-left:2px solid transparent;}
 .adm-nav-item:hover{color:var(--cream);background:rgba(74,124,74,.08);}
 .adm-nav-item.active{color:var(--sage);background:rgba(74,124,74,.12);border-left-color:var(--sage);}
@@ -208,6 +207,7 @@ tr:hover td{background:rgba(74,124,74,.05);}
 .s-confirmed{background:var(--success-light);color:var(--success);border:1px solid rgba(39,174,96,.2);}
 .s-paid{background:rgba(44,95,122,.2);color:var(--sky);border:1px solid rgba(90,154,181,.2);}
 .s-cancelled{background:var(--danger-light);color:#e07070;border:1px solid rgba(192,57,43,.2);}
+.s-refunded{background:rgba(107,107,90,.15);color:var(--stone);border:1px solid rgba(107,107,90,.2);}
 .action-row{display:flex;gap:6px;flex-wrap:wrap;}
 
 /* ── SEARCH / FILTER ── */
@@ -244,10 +244,9 @@ tr:hover td{background:rgba(74,124,74,.05);}
 /* ── MODAL ── */
 .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:500;align-items:center;justify-content:center;padding:20px;}
 .modal-bg.open{display:flex;}
-.modal{background:var(--moss);border:1px solid rgba(122,173,106,.25);border-radius:16px;padding:28px;max-width:540px;width:100%;max-height:90vh;overflow-y:auto;animation:fadeUp .3s ease;}
+.modal{background:var(--moss);border:1px solid rgba(122,173,106,.25);border-radius:16px;padding:28px;max-width:540px;width:100%;max-height:90vh;overflow-y:auto;animation:fadeUp .3s ease;position:relative;}
 .modal-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;margin-bottom:16px;}
 .modal-close{position:absolute;top:18px;right:18px;background:none;border:none;color:var(--stone);font-size:1.3rem;cursor:pointer;}
-.modal{position:relative;}
 
 /* ── PAYMENT CONFIRM ── */
 .payment-methods{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
@@ -282,7 +281,7 @@ tr:hover td{background:rgba(74,124,74,.05);}
 /* ── RESPONSIVE ── */
 @media(max-width:700px){
   .admin-wrap{flex-direction:column;}
-  .admin-sidebar{width:100%;display:flex;overflow-x:auto;padding:8px 0;border-right:none;border-bottom:1px solid rgba(74,124,74,.15);}
+  .admin-sidebar{width:100%;flex-direction:row;overflow-x:auto;padding:8px 0;border-right:none;border-bottom:1px solid rgba(74,124,74,.15);}
   .adm-nav-item{border-left:none;border-bottom:2px solid transparent;white-space:nowrap;padding:8px 14px;}
   .adm-nav-item.active{border-bottom-color:var(--sage);border-left:none;}
   .fgrid,.vtype-row{grid-template-columns:1fr;}
@@ -295,8 +294,7 @@ tr:hover td{background:rgba(74,124,74,.05);}
 @media print{
   body{background:#fff;color:#000;}
   body::before{display:none;}
-  .topbar,.booking-hero,.steps,.screen-title,.screen-sub,.print-actions,
-  .confirm-hero,.brow{display:none!important;}
+  .topbar,.booking-hero,.steps,.stitle,.ssub,.print-actions,.confirm-hero,.brow{display:none!important;}
   .ticket{box-shadow:none;}
   .tkt-top{print-color-adjust:exact;-webkit-print-color-adjust:exact;}
 }
@@ -323,9 +321,7 @@ tr:hover td{background:rgba(74,124,74,.05);}
   </div>
 </div>
 
-<!-- ════════════════════════════════════
-     TAB: BOOKING
-════════════════════════════════════ -->
+<!-- ════════ TAB: BOOKING ════════ -->
 <div class="tab-content active" id="tab-booking">
   <div class="booking-hero">
     <div class="hero-badge">✦ Gisenyi, Rwanda ✦</div>
@@ -339,15 +335,15 @@ tr:hover td{background:rgba(74,124,74,.05);}
       <div class="chip"><a href="https://wa.me/250796123106" target="_blank" style="color:inherit;text-decoration:none">📱 WhatsApp Us</a></div>
     </div>
     <div class="steps">
-      <div class="sdot active" id="sd1"><span>1</span><span class="sdot-lbl">Package</span></div>
+      <div class="sdot active" id="sd1"><span class="sdot-num">1</span><span class="sdot-lbl">Package</span></div>
       <div class="sline" id="sl1"></div>
-      <div class="sdot" id="sd2"><span>2</span><span class="sdot-lbl">Details</span></div>
+      <div class="sdot" id="sd2"><span class="sdot-num">2</span><span class="sdot-lbl">Details</span></div>
       <div class="sline" id="sl2"></div>
-      <div class="sdot" id="sd3"><span>3</span><span class="sdot-lbl">Ticket</span></div>
+      <div class="sdot" id="sd3"><span class="sdot-num">3</span><span class="sdot-lbl">Ticket</span></div>
     </div>
   </div>
 
-  <!-- Screen 1: Choose Package -->
+  <!-- Screen 1 -->
   <div class="screen active" id="scr1">
     <h2 class="stitle">Choose Your Experience</h2>
     <p class="ssub">Select a guided adventure at Nengo Hill</p>
@@ -355,7 +351,7 @@ tr:hover td{background:rgba(74,124,74,.05);}
     <div class="brow"><button class="btn btn-primary" onclick="goStep(2)">Continue →</button></div>
   </div>
 
-  <!-- Screen 2: Details -->
+  <!-- Screen 2 -->
   <div class="screen" id="scr2">
     <h2 class="stitle">Your Details</h2>
     <p class="ssub" id="scr2-sub">Fill in your information to generate your ticket</p>
@@ -379,7 +375,8 @@ tr:hover td{background:rgba(74,124,74,.05);}
             <option>Mid-Morning (9:00 AM)</option>
             <option>Afternoon (1:00 PM)</option>
             <option>Sunset (4:30 PM)</option>
-          </select><span class="ferr" id="e-time">Required</span></div>
+          </select><span class="ferr" id="e-time">Required</span>
+        </div>
         <div class="fg"><label>No. of People *</label><input type="number" id="f-pax" class="fc" min="1" max="100" value="1"><span class="ferr" id="e-pax">Min 1</span></div>
         <div class="fg full" id="vtype-section"><label>Visitor Category *</label>
           <div class="vtype-row" id="vtype-row">
@@ -448,29 +445,29 @@ tr:hover td{background:rgba(74,124,74,.05);}
   </div>
 </div>
 
-<!-- ════════════════════════════════════
-     TAB: EVENTS
-════════════════════════════════════ -->
+<!-- ════════ TAB: EVENTS ════════ -->
 <div class="tab-content" id="tab-events">
   <div class="booking-hero">
     <div class="hero-badge">✦ Upcoming Events ✦</div>
-    <h1>Special <em>Events</em><br>& Experiences</h1>
-    <p class="hero-sub">Limited-capacity guided experiences, photography walks, cultural nights and more. Each event ticket has its own unique QR code.</p>
+    <h1>Special <em>Events</em><br>&amp; Experiences</h1>
+    <p class="hero-sub">Limited-capacity guided experiences, photography walks, cultural nights and more.</p>
     <div class="steps">
-      <div class="sdot active" id="esd1"><span>1</span><span class="sdot-lbl">Event</span></div>
+      <div class="sdot active" id="esd1"><span class="sdot-num">1</span><span class="sdot-lbl">Event</span></div>
       <div class="sline" id="esl1"></div>
-      <div class="sdot" id="esd2"><span>2</span><span class="sdot-lbl">Details</span></div>
+      <div class="sdot" id="esd2"><span class="sdot-num">2</span><span class="sdot-lbl">Details</span></div>
       <div class="sline" id="esl2"></div>
-      <div class="sdot" id="esd3"><span>3</span><span class="sdot-lbl">Ticket</span></div>
+      <div class="sdot" id="esd3"><span class="sdot-num">3</span><span class="sdot-lbl">Ticket</span></div>
     </div>
   </div>
-  <div class="screen active" id="escr1" style="max-width:820px;margin:0 auto;padding:0 20px 60px;">
+
+  <div class="screen active" id="escr1">
     <h2 class="stitle">Upcoming Events</h2>
     <p class="ssub">Choose an event to book your spot</p>
     <div class="events-grid" id="events-grid"></div>
     <div class="brow"><button class="btn btn-primary" onclick="goEventStep(2)">Continue →</button></div>
   </div>
-  <div class="screen" id="escr2" style="max-width:820px;margin:0 auto;padding:0 20px 60px;">
+
+  <div class="screen" id="escr2">
     <h2 class="stitle">Event Details</h2>
     <p class="ssub">Register for your selected event</p>
     <div class="sel-banner" id="esel-banner">
@@ -491,7 +488,8 @@ tr:hover td{background:rgba(74,124,74,.05);}
       </div>
     </div>
   </div>
-  <div class="screen" id="escr3" style="max-width:820px;margin:0 auto;padding:0 20px 60px;">
+
+  <div class="screen" id="escr3">
     <div class="confirm-hero"><div class="ci">🎪</div><h2>Event Booked!</h2><p>Your event ticket is confirmed. Show this at the event entrance.</p></div>
     <div class="ticket-wrap">
       <div class="ticket" id="event-ticket">
@@ -531,9 +529,7 @@ tr:hover td{background:rgba(74,124,74,.05);}
   </div>
 </div>
 
-<!-- ════════════════════════════════════
-     TAB: VERIFY
-════════════════════════════════════ -->
+<!-- ════════ TAB: VERIFY ════════ -->
 <div class="tab-content" id="tab-verify">
   <div style="max-width:500px;margin:60px auto;padding:0 24px;">
     <h2 class="stitle">Verify Ticket</h2>
@@ -549,10 +545,8 @@ tr:hover td{background:rgba(74,124,74,.05);}
   </div>
 </div>
 
-<!-- ════════════════════════════════════
-     ADMIN PANEL
-════════════════════════════════════ -->
-<div class="tab-content" id="tab-admin" style="display:none;">
+<!-- ════════ TAB: ADMIN ════════ -->
+<div class="tab-content" id="tab-admin">
   <!-- Login Gate -->
   <div id="admin-login" style="max-width:380px;margin:80px auto;padding:0 24px;">
     <h2 class="stitle">Admin Access</h2>
@@ -567,14 +561,14 @@ tr:hover td{background:rgba(74,124,74,.05);}
     </div>
   </div>
 
-  <!-- Admin Dashboard (hidden until login) -->
+  <!-- Admin Dashboard -->
   <div id="admin-dashboard" style="display:none;">
     <div class="admin-wrap">
       <div class="admin-sidebar">
         <div class="adm-nav-item active" onclick="showPanel('overview',this)"><span class="icon">📊</span> Overview</div>
         <div class="adm-nav-item" onclick="showPanel('bookings',this)"><span class="icon">📋</span> Bookings</div>
         <div class="adm-nav-item" onclick="showPanel('events-mgr',this)"><span class="icon">🎪</span> Events</div>
-        <div class="adm-nav-item" onclick="showPanel('products',this)"><span class="icon">🛍️</span> Products & Pricing</div>
+        <div class="adm-nav-item" onclick="showPanel('products',this)"><span class="icon">🛍️</span> Products &amp; Pricing</div>
         <div class="adm-nav-item" onclick="showPanel('payments',this)"><span class="icon">💳</span> Payments</div>
         <div class="adm-nav-item" onclick="showPanel('scanner',this)"><span class="icon">📱</span> Ticket Scanner</div>
         <div style="margin-top:auto;padding:12px 22px;border-top:1px solid rgba(74,124,74,.12);">
@@ -636,7 +630,7 @@ tr:hover td{background:rgba(74,124,74,.05);}
 
         <!-- Products & Pricing -->
         <div class="admin-panel" id="panel-products">
-          <div class="panel-hdr"><div class="panel-title">🛍️ Products & Pricing</div><button class="btn btn-primary btn-sm" onclick="saveAllProducts()">💾 Save All</button></div>
+          <div class="panel-hdr"><div class="panel-title">🛍️ Products &amp; Pricing</div><button class="btn btn-primary btn-sm" onclick="saveAllProducts()">💾 Save All</button></div>
           <p style="font-size:.82rem;color:var(--stone);margin-bottom:20px;">Edit prices and toggle product availability. Changes apply to the booking form immediately.</p>
           <div class="prod-cards" id="prod-cards"></div>
         </div>
@@ -684,44 +678,50 @@ tr:hover td{background:rgba(74,124,74,.05);}
 </div>
 
 <!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/250796123106" target="_blank" id="wa-float" style="position:fixed;bottom:28px;left:28px;z-index:600;background:#25D366;color:#fff;border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 18px rgba(37,211,102,.45);text-decoration:none;transition:transform .2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">📱</a>
+<a href="https://wa.me/250796123106" target="_blank" style="position:fixed;bottom:28px;left:28px;z-index:600;background:#25D366;color:#fff;border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 18px rgba(37,211,102,.45);text-decoration:none;transition:transform .2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">📱</a>
 
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
-<!-- ════════════════════════════════════
-     JAVASCRIPT
-════════════════════════════════════ -->
 <script>
+// ─── SAFE STORAGE ─────────────────────────────────────────────────────────────
+function safeGet(key, fallback) {
+  try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }
+  catch(e) { return fallback; }
+}
+function safeSet(key, val) {
+  try { localStorage.setItem(key, JSON.stringify(val)); } catch(e) {}
+}
+
 // ─── DATA STORE ───────────────────────────────────────────────────────────────
 let DB = {
-  bookings: JSON.parse(localStorage.getItem('nha-bookings')||'[]'),
-  events: JSON.parse(localStorage.getItem('nha-events')||'[]'),
-  products: JSON.parse(localStorage.getItem('nha-products')||'null'),
-  checkedIn: JSON.parse(localStorage.getItem('nha-checkins')||'{}'),
+  bookings: safeGet('nha-bookings', []),
+  events:   safeGet('nha-events', []),
+  products: safeGet('nha-products', null),
+  checkedIn:safeGet('nha-checkins', {}),
 };
 
-function saveDB(){
-  localStorage.setItem('nha-bookings',JSON.stringify(DB.bookings));
-  localStorage.setItem('nha-events',JSON.stringify(DB.events));
-  localStorage.setItem('nha-products',JSON.stringify(DB.products));
-  localStorage.setItem('nha-checkins',JSON.stringify(DB.checkedIn));
+function saveDB() {
+  safeSet('nha-bookings', DB.bookings);
+  safeSet('nha-events', DB.events);
+  safeSet('nha-products', DB.products);
+  safeSet('nha-checkins', DB.checkedIn);
 }
 
 // ─── DEFAULT PRODUCTS ──────────────────────────────────────────────────────────
 const DEFAULT_PRODUCTS = [
   {id:'nature-hiking',name:'Nature Hiking',icon:'🌿',dur:'Half Day (~4 hrs)',badge:'HIKING',desc:'Morning or sunset guided hike on the Nengo Trail. Expert local guide, stunning Lake Kivu views, suitable for all fitness levels. Daily departures.',active:true,pi:10,pr:10,pd:5000,minPax:2,fitness:'Easy to Moderate',includes:'Expert local guide, Half-day experience, Morning & sunset options'},
   {id:'bush-camping',name:'Bush Camping',icon:'🏕️',dur:'Overnight',badge:'CAMPING',desc:'Sleep under the stars on Nengo Hill. Campfire setup, stunning Lake Kivu views, wake to a breathtaking sunrise. Equipment included.',active:true,pi:20,pr:20,pd:10000,minPax:2,fitness:'Easy',includes:'Camping equipment, Expert guide, Overnight stay, Campfire setup'},
-  {id:'congo-nile-trail',name:'Congo Nile Trail',icon:'🚵',dur:'3 Days / 2 Nights',badge:'TREK',desc:'Rwanda\'s most epic multi-day trek along Lake Kivu\'s western shore. Lush hills, remote fishing villages, unforgettable sunsets. All meals & camping included.',active:true,pi:0,pr:0,pd:0,minPax:2,fitness:'Moderate',includes:'Expert guide (3 days), 2 nights bush camping, All meals, Camping equipment, First aid kit, Transport back',contactForPrice:true},
+  {id:'congo-nile-trail',name:'Congo Nile Trail',icon:'🚵',dur:'3 Days / 2 Nights',badge:'TREK',desc:"Rwanda's most epic multi-day trek along Lake Kivu's western shore. Lush hills, remote fishing villages, unforgettable sunsets. All meals & camping included.",active:true,pi:0,pr:0,pd:0,minPax:2,fitness:'Moderate',includes:'Expert guide (3 days), 2 nights bush camping, All meals, Camping equipment, First aid kit, Transport back',contactForPrice:true},
   {id:'pfunda-tea-tour',name:'Pfunda Tea Tour',icon:'🍃',dur:'Full Day (~8–9 hrs)',badge:'CULTURE',desc:'Walk through the breathtaking Pfunda Tea Estate. Plantation walk, factory tour, and a curated tea tasting session with local snacks. Departs 7:30 AM.',active:true,pi:0,pr:0,pd:0,minPax:2,fitness:'Easy',includes:'Return transport, Expert guide, Plantation & factory tour, Tea tasting, Local snacks, Packed lunch',contactForPrice:true},
   {id:'city-tour',name:'Gisenyi City Tour',icon:'🏙️',dur:'Half or Full Day',badge:'CITY',desc:'Explore vibrant streets, local markets, and historic landmarks of Gisenyi with a local guide. Taste local food, learn about life where Rwanda meets the DRC.',active:true,pi:50,pr:50,pd:25000,minPax:2,fitness:'Easy',includes:'Expert local guide, Transport, Customisable itinerary, Local food tasting stops'},
   {id:'romantic-hike',name:'Romantic Hike',icon:'💑',dur:'2 Hours',badge:'ROMANTIC',desc:'Intimate couple experience on the Nengo Trail at golden hour, with snacks and a special romantic nest at the summit.',active:true,pi:30,pr:25,pd:20000,minPax:2,fitness:'Easy to Moderate',includes:'Expert guide, Snacks & drinks, Romantic nest setup'},
 ];
 
-if(!DB.products) DB.products = JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
+if (!DB.products) DB.products = JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
 
 // ─── DEFAULT EVENTS ────────────────────────────────────────────────────────────
-if(DB.events.length===0){
+if (DB.events.length === 0) {
   DB.events = [
     {id:'EVT001',name:'Full Moon Hike',icon:'🌕',date:'2026-05-12',time:'6:00 PM',duration:'3 Hours',desc:'A magical nighttime hike under the full moon with stunning Lake Kivu reflections.',spots:30,booked:8,pi:35,pr:28,pd:20000,active:true},
     {id:'EVT002',name:'Photography Walk',icon:'📸',date:'2026-06-08',time:'5:30 AM',duration:'4 Hours',desc:'Early morning golden hour photography hike led by a professional photographer.',spots:12,booked:5,pi:50,pr:40,pd:30000,active:true},
@@ -738,89 +738,101 @@ let currentStep = 1;
 let currentEventStep = 1;
 let lastTicketId = null;
 let adminLoggedIn = false;
+let selMethod = 'Cash';
 
 // ─── INIT ──────────────────────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', ()=>{
+document.addEventListener('DOMContentLoaded', () => {
   renderPkgGrid();
   renderEventsGrid();
-  document.getElementById('f-date').min = new Date().toISOString().split('T')[0];
+  const dateEl = document.getElementById('f-date');
+  if (dateEl) dateEl.min = new Date().toISOString().split('T')[0];
   updateEventsBadge();
-  setInterval(()=>{
-    const el=document.getElementById('dash-time');
-    if(el) el.textContent=new Date().toLocaleString();
-  },1000);
+  setInterval(() => {
+    const el = document.getElementById('dash-time');
+    if (el) el.textContent = new Date().toLocaleString();
+  }, 1000);
 });
 
 // ─── TABS ──────────────────────────────────────────────────────────────────────
-function showTab(name){
-  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  const el = document.getElementById('tab-'+name);
-  if(el) el.classList.add('active');
-  const btns = document.querySelectorAll('.tab-btn');
-  btns.forEach(b=>{ if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes("'"+name+"'")) b.classList.add('active'); });
+function showTab(name) {
+  document.querySelectorAll('.tab-content').forEach(t => {
+    t.classList.remove('active');
+  });
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  const el = document.getElementById('tab-' + name);
+  if (el) el.classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    const oc = b.getAttribute('onclick') || '';
+    if (oc.includes("'" + name + "'")) b.classList.add('active');
+  });
 }
 
-function toggleAdmin(){
-  const admEl = document.getElementById('tab-admin');
+function toggleAdmin() {
+  const isAdminVisible = document.getElementById('tab-admin').classList.contains('active');
   const btn = document.getElementById('admin-toggle');
-  if(admEl.style.display==='block'){
-    admEl.style.display='none';
+  if (isAdminVisible) {
+    document.getElementById('tab-admin').classList.remove('active');
     btn.classList.remove('active');
-    document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
     document.getElementById('tab-booking').classList.add('active');
-    document.querySelector('.tab-btn').classList.add('active');
+    document.querySelector('.tab-btn[onclick*="booking"]').classList.add('active');
   } else {
-    document.querySelectorAll('.tab-content').forEach(t=>t.style.display='');
-    document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
-    admEl.style.display='block';
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-admin').classList.add('active');
     btn.classList.add('active');
-    if(adminLoggedIn){ document.getElementById('admin-login').style.display='none'; document.getElementById('admin-dashboard').style.display='block'; refreshAdmin(); }
+    if (adminLoggedIn) {
+      document.getElementById('admin-login').style.display = 'none';
+      document.getElementById('admin-dashboard').style.display = 'block';
+      refreshAdmin();
+    }
   }
 }
 
-function checkAdmin(){
+function checkAdmin() {
   const pass = document.getElementById('admin-pass').value;
-  if(pass==='nengo2024'){
-    adminLoggedIn=true;
-    document.getElementById('admin-login').style.display='none';
-    document.getElementById('admin-dashboard').style.display='block';
+  if (pass === 'nengo2024') {
+    adminLoggedIn = true;
+    document.getElementById('admin-login').style.display = 'none';
+    document.getElementById('admin-dashboard').style.display = 'block';
     refreshAdmin();
     toast('Welcome back, Admin! 👋');
-  } else { toast('Incorrect password','error'); }
+  } else {
+    toast('Incorrect password', 'error');
+  }
 }
 
-function logoutAdmin(){
-  adminLoggedIn=false;
-  document.getElementById('admin-login').style.display='block';
-  document.getElementById('admin-dashboard').style.display='none';
-  document.getElementById('admin-pass').value='';
+function logoutAdmin() {
+  adminLoggedIn = false;
+  document.getElementById('admin-login').style.display = 'block';
+  document.getElementById('admin-dashboard').style.display = 'none';
+  document.getElementById('admin-pass').value = '';
   toggleAdmin();
 }
 
-function showPanel(name, el){
-  document.querySelectorAll('.admin-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.adm-nav-item').forEach(i=>i.classList.remove('active'));
-  document.getElementById('panel-'+name).classList.add('active');
-  if(el) el.classList.add('active');
-  if(name==='overview') renderOverview();
-  if(name==='bookings') renderBookingsTable();
-  if(name==='events-mgr') renderEventsAdmin();
-  if(name==='products') renderProductCards();
-  if(name==='payments') renderPaymentsTable();
+function showPanel(name, el) {
+  document.querySelectorAll('.admin-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.adm-nav-item').forEach(i => i.classList.remove('active'));
+  const panel = document.getElementById('panel-' + name);
+  if (panel) panel.classList.add('active');
+  if (el) el.classList.add('active');
+  if (name === 'overview') renderOverview();
+  if (name === 'bookings') renderBookingsTable();
+  if (name === 'events-mgr') renderEventsAdmin();
+  if (name === 'products') renderProductCards();
+  if (name === 'payments') renderPaymentsTable();
 }
 
-function refreshAdmin(){
+function refreshAdmin() {
   renderOverview();
   renderProductCards();
   renderEventsAdmin();
 }
 
 // ─── PACKAGE GRID ──────────────────────────────────────────────────────────────
-function renderPkgGrid(){
+function renderPkgGrid() {
   const grid = document.getElementById('pkg-grid');
-  const active = DB.products.filter(p=>p.active);
-  grid.innerHTML = active.map(p=>`
+  const active = DB.products.filter(p => p.active);
+  grid.innerHTML = active.map(p => `
     <div class="pkg-card" data-id="${p.id}" onclick="selPkg(this)">
       <div class="pkg-chk">✓</div>
       <div class="pkg-icon">${p.icon}</div>
@@ -839,20 +851,24 @@ function renderPkgGrid(){
     </div>`).join('');
 }
 
-function selPkg(el){
-  document.querySelectorAll('.pkg-card').forEach(c=>c.classList.remove('sel'));
+function selPkg(el) {
+  document.querySelectorAll('.pkg-card').forEach(c => c.classList.remove('sel'));
   el.classList.add('sel');
   selectedPkg = el.dataset.id;
 }
 
 // ─── EVENTS GRID ───────────────────────────────────────────────────────────────
-function renderEventsGrid(){
+function renderEventsGrid() {
   const grid = document.getElementById('events-grid');
-  const active = DB.events.filter(e=>e.active);
-  if(!active.length){ grid.innerHTML='<div class="empty-state"><div class="ei">🎪</div><p>No upcoming events yet.<br>Check back soon!</p></div>'; return; }
-  grid.innerHTML = active.map(e=>{
-    const pct = Math.round((e.booked/e.spots)*100);
-    const dateStr = new Date(e.date+'T12:00:00').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  const active = DB.events.filter(e => e.active);
+  if (!active.length) {
+    grid.innerHTML = '<div class="empty-state"><div class="ei">🎪</div><p>No upcoming events yet.<br>Check back soon!</p></div>';
+    updateEventsBadge();
+    return;
+  }
+  grid.innerHTML = active.map(e => {
+    const pct = Math.round((e.booked / e.spots) * 100);
+    const dateStr = new Date(e.date + 'T12:00:00').toLocaleDateString('en-GB', {weekday:'long',day:'numeric',month:'long',year:'numeric'});
     return `
     <div class="event-card" data-id="${e.id}" onclick="selEvent(this)">
       <div class="pkg-chk">✓</div>
@@ -865,266 +881,291 @@ function renderEventsGrid(){
         <div class="pr"><span>Foreign Resident</span><span class="prv">$${e.pr}/person</span></div>
         <div class="pr"><span>Domestic/EAC</span><span class="prv">${e.pd.toLocaleString()} RWF</span></div>
       </div>
-      <div class="event-spots">⏱ ${e.time} · ${e.duration} &nbsp;|&nbsp; <span>${e.spots-e.booked}</span> spots left</div>
+      <div class="event-spots">⏱ ${e.time} · ${e.duration} &nbsp;|&nbsp; <span>${e.spots - e.booked}</span> spots left</div>
       <div class="spots-bar"><div class="spots-fill" style="width:${pct}%"></div></div>
     </div>`;
   }).join('');
   updateEventsBadge();
 }
 
-function selEvent(el){
-  document.querySelectorAll('.event-card').forEach(c=>c.classList.remove('sel'));
+function selEvent(el) {
+  document.querySelectorAll('.event-card').forEach(c => c.classList.remove('sel'));
   el.classList.add('sel');
   selectedEvent = el.dataset.id;
 }
 
-function updateEventsBadge(){
-  document.getElementById('events-badge').textContent = DB.events.filter(e=>e.active).length;
+function updateEventsBadge() {
+  const el = document.getElementById('events-badge');
+  if (el) el.textContent = DB.events.filter(e => e.active).length;
 }
 
 // ─── STEP NAVIGATION ───────────────────────────────────────────────────────────
-function goStep(n){
-  if(n===2 && !selectedPkg){ toast('Please select a package first','error'); return; }
-  if(n===2){
-    const pkg = DB.products.find(p=>p.id===selectedPkg);
-    document.getElementById('sel-icon').textContent=pkg.icon;
-    document.getElementById('sel-name').textContent=pkg.name;
-    document.getElementById('sel-dur').textContent=pkg.dur;
+function goStep(n) {
+  if (n === 2 && !selectedPkg) { toast('Please select a package first', 'error'); return; }
+  if (n === 2) {
+    const pkg = DB.products.find(p => p.id === selectedPkg);
+    document.getElementById('sel-icon').textContent = pkg.icon;
+    document.getElementById('sel-name').textContent = pkg.name;
+    document.getElementById('sel-dur').textContent = pkg.dur;
     const isContact = !!pkg.contactForPrice;
     document.getElementById('contact-price-notice').style.display = isContact ? 'block' : 'none';
     document.getElementById('vtype-section').style.display = isContact ? 'none' : 'block';
     document.getElementById('generate-btn').textContent = isContact ? '📱 Request via WhatsApp ✦' : 'Generate Ticket ✦';
-    if(!isContact){
-      document.getElementById('vp0').textContent=`$${pkg.pi}/person`;
-      document.getElementById('vp1').textContent=`$${pkg.pr}/person`;
-      document.getElementById('vp2').textContent=`${pkg.pd.toLocaleString()} RWF`;
+    if (!isContact) {
+      document.getElementById('vp0').textContent = `$${pkg.pi}/person`;
+      document.getElementById('vp1').textContent = `$${pkg.pr}/person`;
+      document.getElementById('vp2').textContent = `${pkg.pd.toLocaleString()} RWF`;
     }
-    selectedVtype='international';
-    document.querySelectorAll('.vbtn').forEach((b,i)=>b.classList.toggle('sel',i===0));
+    selectedVtype = 'international';
+    document.querySelectorAll('.vbtn').forEach((b, i) => b.classList.toggle('sel', i === 0));
   }
-  currentStep=n;
-  document.querySelectorAll('#tab-booking .screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById('scr'+n).classList.add('active');
-  updateStepDots(['sd1','sd2','sd3'],['sl1','sl2'],n);
-  window.scrollTo({top:0,behavior:'smooth'});
+  currentStep = n;
+  document.querySelectorAll('#tab-booking .screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('scr' + n).classList.add('active');
+  updateStepDots(['sd1','sd2','sd3'], ['sl1','sl2'], n);
+  window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
-function goEventStep(n){
-  if(n===2 && !selectedEvent){ toast('Please select an event first','error'); return; }
-  if(n===2){
-    const ev = DB.events.find(e=>e.id===selectedEvent);
-    document.getElementById('esel-icon').textContent=ev.icon;
-    document.getElementById('esel-name').textContent=ev.name;
-    document.getElementById('esel-date').textContent=new Date(ev.date+'T12:00:00').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
+function goEventStep(n) {
+  if (n === 2 && !selectedEvent) { toast('Please select an event first', 'error'); return; }
+  if (n === 2) {
+    const ev = DB.events.find(e => e.id === selectedEvent);
+    document.getElementById('esel-icon').textContent = ev.icon;
+    document.getElementById('esel-name').textContent = ev.name;
+    document.getElementById('esel-date').textContent = new Date(ev.date + 'T12:00:00').toLocaleDateString('en-GB', {weekday:'long',day:'numeric',month:'long'});
   }
-  currentEventStep=n;
-  document.querySelectorAll('#tab-events .screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById('escr'+n).classList.add('active');
-  updateStepDots(['esd1','esd2','esd3'],['esl1','esl2'],n);
-  window.scrollTo({top:0,behavior:'smooth'});
+  currentEventStep = n;
+  document.querySelectorAll('#tab-events .screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('escr' + n).classList.add('active');
+  updateStepDots(['esd1','esd2','esd3'], ['esl1','esl2'], n);
+  window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
-function updateStepDots(dots,lines,n){
-  dots.forEach((id,i)=>{
-    const el=document.getElementById(id);
-    if(!el) return;
-    const num=i+1;
-    el.className='sdot'+(num<n?' done':num===n?' active':'');
-    el.querySelector('span').textContent=num<n?'':num;
+// FIX: use .sdot-num instead of generic span to avoid hitting .sdot-lbl
+function updateStepDots(dots, lines, n) {
+  dots.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const num = i + 1;
+    el.className = 'sdot' + (num < n ? ' done' : num === n ? ' active' : '');
+    const numEl = el.querySelector('.sdot-num');
+    if (numEl) numEl.textContent = num < n ? '✓' : num;
   });
-  lines.forEach((id,i)=>{
-    const el=document.getElementById(id);
-    if(el) el.className='sline'+(i+1<n?' done':'');
+  lines.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (el) el.className = 'sline' + (i + 1 < n ? ' done' : '');
   });
 }
 
 // ─── VTYPE SELECT ──────────────────────────────────────────────────────────────
-function selVtype(el){
-  document.querySelectorAll('.vbtn').forEach(b=>b.classList.remove('sel'));
+function selVtype(el) {
+  document.querySelectorAll('.vbtn').forEach(b => b.classList.remove('sel'));
   el.classList.add('sel');
-  selectedVtype=el.dataset.vt;
+  selectedVtype = el.dataset.vt;
 }
 
 // ─── GENERATE BOOKING TICKET ───────────────────────────────────────────────────
-function generateTicket(){
-  const pkg=DB.products.find(p=>p.id===selectedPkg);
+function generateTicket() {
+  const pkg = DB.products.find(p => p.id === selectedPkg);
+  if (!pkg) { toast('Please select a package', 'error'); return; }
 
-  // If contact-for-price, redirect to WhatsApp
-  if(pkg && pkg.contactForPrice){
-    const name=document.getElementById('f-name').value.trim()||'(name not entered)';
-    const date=document.getElementById('f-date').value||'TBD';
-    const pax=document.getElementById('f-pax').value||'1';
-    const msg=encodeURIComponent(`Hello Nengo Hill Adventure! I'm interested in booking the *${pkg.name}* (${pkg.dur}).\n\nName: ${name}\nDate: ${date}\nPax: ${pax}\n\nPlease share pricing and availability. Thank you!`);
-    window.open(`https://wa.me/250796123106?text=${msg}`,'_blank');
+  if (pkg.contactForPrice) {
+    const name = document.getElementById('f-name').value.trim() || '(name not entered)';
+    const date = document.getElementById('f-date').value || 'TBD';
+    const pax  = document.getElementById('f-pax').value || '1';
+    const msg  = encodeURIComponent(`Hello Nengo Hill Adventure! I'm interested in booking the *${pkg.name}* (${pkg.dur}).\n\nName: ${name}\nDate: ${date}\nPax: ${pax}\n\nPlease share pricing and availability. Thank you!`);
+    window.open(`https://wa.me/250796123106?text=${msg}`, '_blank');
     toast('Redirecting to WhatsApp for pricing! 📱');
     return;
   }
 
-  const fields=[
-    {id:'f-name',eid:'e-name',check:v=>v.trim().length>1},
-    {id:'f-email',eid:'e-email',check:v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)},
-    {id:'f-phone',eid:'e-phone',check:v=>v.trim().length>5},
-    {id:'f-date',eid:'e-date',check:v=>!!v},
-    {id:'f-time',eid:'e-time',check:v=>!!v},
-    {id:'f-pax',eid:'e-pax',check:v=>parseInt(v)>=1},
+  const fields = [
+    {id:'f-name',  eid:'e-name',  check: v => v.trim().length > 1},
+    {id:'f-email', eid:'e-email', check: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)},
+    {id:'f-phone', eid:'e-phone', check: v => v.trim().length > 5},
+    {id:'f-date',  eid:'e-date',  check: v => !!v},
+    {id:'f-time',  eid:'e-time',  check: v => !!v},
+    {id:'f-pax',   eid:'e-pax',   check: v => parseInt(v) >= 1},
   ];
-  let ok=true;
-  fields.forEach(f=>{
-    const el=document.getElementById(f.id),err=document.getElementById(f.eid);
-    if(!f.check(el.value)){el.classList.add('invalid');err.style.display='block';ok=false;}
-    else{el.classList.remove('invalid');err.style.display='none';}
+  let ok = true;
+  fields.forEach(f => {
+    const el = document.getElementById(f.id);
+    const err = document.getElementById(f.eid);
+    if (!el || !err) return;
+    if (!f.check(el.value)) { el.classList.add('invalid'); err.style.display = 'block'; ok = false; }
+    else { el.classList.remove('invalid'); err.style.display = 'none'; }
   });
-  if(!ok) return;
+  if (!ok) return;
 
-  const name=document.getElementById('f-name').value.trim();
-  const email=document.getElementById('f-email').value.trim();
-  const phone=document.getElementById('f-phone').value.trim();
-  const dateRaw=document.getElementById('f-date').value;
-  const time=document.getElementById('f-time').value;
-  const pax=parseInt(document.getElementById('f-pax').value);
-  const notes=document.getElementById('f-notes').value;
-  const dateStr=new Date(dateRaw+'T12:00:00').toLocaleDateString('en-GB',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-  let total,bkdn,totalNum;
-  if(selectedVtype==='international'){totalNum=pkg.pi*pax;total=`$${totalNum}`;bkdn=`$${pkg.pi} × ${pax} person(s)`;}
-  else if(selectedVtype==='foreign'){totalNum=pkg.pr*pax;total=`$${totalNum}`;bkdn=`$${pkg.pr} × ${pax} person(s)`;}
-  else{totalNum=pkg.pd*pax;total=`${totalNum.toLocaleString()} RWF`;bkdn=`${pkg.pd.toLocaleString()} RWF × ${pax}`;}
-  const vtLbl={'international':'🌍 International','foreign':'🏠 Foreign Resident','domestic':'🇷🇼 Domestic/EAC'}[selectedVtype];
-  const id='NHA-'+Math.random().toString(36).substring(2,10).toUpperCase();
-  lastTicketId=id;
+  const name    = document.getElementById('f-name').value.trim();
+  const email   = document.getElementById('f-email').value.trim();
+  const phone   = document.getElementById('f-phone').value.trim();
+  const dateRaw = document.getElementById('f-date').value;
+  const time    = document.getElementById('f-time').value;
+  const pax     = parseInt(document.getElementById('f-pax').value);
+  const notes   = document.getElementById('f-notes').value;
+  const dateStr = new Date(dateRaw + 'T12:00:00').toLocaleDateString('en-GB', {weekday:'long',year:'numeric',month:'long',day:'numeric'});
 
-  const booking={id,type:'activity',created:new Date().toISOString(),name,email,phone,package:pkg.name,packageId:pkg.id,date:dateRaw,time,pax,vtype:selectedVtype,total,totalNum,paymentStatus:'Pending',status:'Confirmed',notes};
+  let total, bkdn, totalNum;
+  if (selectedVtype === 'international')   { totalNum = pkg.pi * pax; total = `$${totalNum}`; bkdn = `$${pkg.pi} × ${pax} person(s)`; }
+  else if (selectedVtype === 'foreign')    { totalNum = pkg.pr * pax; total = `$${totalNum}`; bkdn = `$${pkg.pr} × ${pax} person(s)`; }
+  else                                     { totalNum = pkg.pd * pax; total = `${totalNum.toLocaleString()} RWF`; bkdn = `${pkg.pd.toLocaleString()} RWF × ${pax}`; }
+
+  const vtLbl = {international:'🌍 International', foreign:'🏠 Foreign Resident', domestic:'🇷🇼 Domestic/EAC'}[selectedVtype];
+  const id = 'NHA-' + Math.random().toString(36).substring(2, 10).toUpperCase();
+  lastTicketId = id;
+
+  const booking = {id, type:'activity', created:new Date().toISOString(), name, email, phone, package:pkg.name, packageId:pkg.id, date:dateRaw, time, pax, vtype:selectedVtype, total, totalNum, paymentStatus:'Pending', status:'Confirmed', notes};
   DB.bookings.unshift(booking);
   saveDB();
 
-  document.getElementById('t-badge').textContent=pkg.badge;
-  document.getElementById('t-pkg').textContent=pkg.icon+' '+pkg.name;
-  document.getElementById('t-name').textContent=name;
-  document.getElementById('t-date').textContent=dateStr;
-  document.getElementById('t-time').textContent=time;
-  document.getElementById('t-pax').textContent=pax+(pax===1?' Person':' People');
-  document.getElementById('t-vtype').textContent=vtLbl;
-  document.getElementById('t-dur').textContent=pkg.dur;
-  document.getElementById('t-total').textContent=total;
-  document.getElementById('t-bkdn').textContent=bkdn;
-  document.getElementById('t-id').textContent=id;
-  document.getElementById('t-status-badge').textContent='✓ CONFIRMED';
+  document.getElementById('t-badge').textContent = pkg.badge;
+  document.getElementById('t-pkg').textContent   = pkg.icon + ' ' + pkg.name;
+  document.getElementById('t-name').textContent  = name;
+  document.getElementById('t-date').textContent  = dateStr;
+  document.getElementById('t-time').textContent  = time;
+  document.getElementById('t-pax').textContent   = pax + (pax === 1 ? ' Person' : ' People');
+  document.getElementById('t-vtype').textContent = vtLbl;
+  document.getElementById('t-dur').textContent   = pkg.dur;
+  document.getElementById('t-total').textContent = total;
+  document.getElementById('t-bkdn').textContent  = bkdn;
+  document.getElementById('t-id').textContent    = id;
+  document.getElementById('t-status-badge').textContent = '✓ CONFIRMED';
 
-  const qrEl=document.getElementById('qr-container');
-  qrEl.innerHTML='';
-  const qrData=JSON.stringify({id,name,pkg:pkg.name,date:dateRaw,pax,total});
-  new QRCode(qrEl,{text:qrData,width:72,height:72,colorDark:'#1a2e1a',colorLight:'#ede6d3',correctLevel:QRCode.CorrectLevel.M});
+  const qrEl = document.getElementById('qr-container');
+  qrEl.innerHTML = '';
+  new QRCode(qrEl, {text: JSON.stringify({id, name, pkg:pkg.name, date:dateRaw, pax, total}), width:72, height:72, colorDark:'#1a2e1a', colorLight:'#ede6d3', correctLevel:QRCode.CorrectLevel.M});
 
   goStep(3);
   toast('Ticket generated! 🎉');
 }
 
 // ─── GENERATE EVENT TICKET ─────────────────────────────────────────────────────
-function generateEventTicket(){
-  const name=document.getElementById('ef-name').value.trim();
-  const email=document.getElementById('ef-email').value.trim();
-  const phone=document.getElementById('ef-phone').value.trim();
-  const pax=parseInt(document.getElementById('ef-pax').value)||1;
-  if(!name||!email||!phone){ toast('Please fill all required fields','error'); return; }
-  const ev=DB.events.find(e=>e.id===selectedEvent);
-  if(!ev) return;
-  if(ev.spots-ev.booked<pax){ toast(`Only ${ev.spots-ev.booked} spots remaining!`,'error'); return; }
+function generateEventTicket() {
+  const name  = document.getElementById('ef-name').value.trim();
+  const email = document.getElementById('ef-email').value.trim();
+  const phone = document.getElementById('ef-phone').value.trim();
+  const pax   = parseInt(document.getElementById('ef-pax').value) || 1;
+  if (!name || !email || !phone) { toast('Please fill all required fields', 'error'); return; }
 
-  let total,totalNum,bkdn;
-  totalNum=ev.pi*pax; total=`$${totalNum}`; bkdn=`$${ev.pi} × ${pax} person(s)`;
-  const id='EVT-'+Math.random().toString(36).substring(2,10).toUpperCase();
-  const dateStr=new Date(ev.date+'T12:00:00').toLocaleDateString('en-GB',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-  ev.booked+=pax;
+  const ev = DB.events.find(e => e.id === selectedEvent);
+  if (!ev) { toast('Please select an event first', 'error'); return; }
+  if (ev.spots - ev.booked < pax) { toast(`Only ${ev.spots - ev.booked} spots remaining!`, 'error'); return; }
 
-  const booking={id,type:'event',eventId:ev.id,created:new Date().toISOString(),name,email,phone,event:ev.name,date:ev.date,time:ev.time,pax,total,totalNum,paymentStatus:'Pending',status:'Confirmed',notes:document.getElementById('ef-notes').value};
+  const totalNum = ev.pi * pax;
+  const total    = `$${totalNum}`;
+  const bkdn     = `$${ev.pi} × ${pax} person(s)`;
+  const id       = 'EVT-' + Math.random().toString(36).substring(2, 10).toUpperCase();
+  const dateStr  = new Date(ev.date + 'T12:00:00').toLocaleDateString('en-GB', {weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  ev.booked += pax;
+
+  const booking = {id, type:'event', eventId:ev.id, created:new Date().toISOString(), name, email, phone, event:ev.name, date:ev.date, time:ev.time, pax, total, totalNum, paymentStatus:'Pending', status:'Confirmed', notes:document.getElementById('ef-notes').value};
   DB.bookings.unshift(booking);
   saveDB();
 
-  document.getElementById('et-badge').textContent='EVENT';
-  document.getElementById('et-name').textContent=ev.icon+' '+ev.name;
-  document.getElementById('et-loc').textContent='📍 Nengo Hill · Gisenyi · '+ev.time;
-  document.getElementById('et-attendee').textContent=name;
-  document.getElementById('et-date').textContent=dateStr;
-  document.getElementById('et-time').textContent=ev.time;
-  document.getElementById('et-pax').textContent=pax+' Ticket(s)';
-  document.getElementById('et-total').textContent=total;
-  document.getElementById('et-bkdn').textContent=bkdn;
-  document.getElementById('et-id').textContent=id;
-  const eqr=document.getElementById('eqr-container');
-  eqr.innerHTML='';
-  new QRCode(eqr,{text:JSON.stringify({id,name,event:ev.name,date:ev.date,pax,total}),width:72,height:72,colorDark:'#1a2e3a',colorLight:'#ede6d3',correctLevel:QRCode.CorrectLevel.M});
+  document.getElementById('et-badge').textContent    = 'EVENT';
+  document.getElementById('et-name').textContent     = ev.icon + ' ' + ev.name;
+  document.getElementById('et-loc').textContent      = '📍 Nengo Hill · Gisenyi · ' + ev.time;
+  document.getElementById('et-attendee').textContent = name;
+  document.getElementById('et-date').textContent     = dateStr;
+  document.getElementById('et-time').textContent     = ev.time;
+  document.getElementById('et-pax').textContent      = pax + ' Ticket(s)';
+  document.getElementById('et-total').textContent    = total;
+  document.getElementById('et-bkdn').textContent     = bkdn;
+  document.getElementById('et-id').textContent       = id;
+
+  const eqr = document.getElementById('eqr-container');
+  eqr.innerHTML = '';
+  new QRCode(eqr, {text: JSON.stringify({id, name, event:ev.name, date:ev.date, pax, total}), width:72, height:72, colorDark:'#1a2e3a', colorLight:'#ede6d3', correctLevel:QRCode.CorrectLevel.M});
+
   renderEventsGrid();
   goEventStep(3);
   toast('Event ticket booked! 🎪');
 }
 
 // ─── RESET FORM ────────────────────────────────────────────────────────────────
-function resetForm(){
-  selectedPkg=null;selectedVtype='international';
-  ['f-name','f-email','f-phone','f-date','f-time','f-pax','f-notes'].forEach(id=>{const el=document.getElementById(id);if(el){el.value=el.type==='number'?'1':'';el.classList.remove('invalid');}});
-  document.querySelectorAll('.ferr').forEach(e=>e.style.display='none');
-  document.querySelectorAll('.pkg-card').forEach(c=>c.classList.remove('sel'));
+function resetForm() {
+  selectedPkg = null; selectedVtype = 'international';
+  ['f-name','f-email','f-phone','f-date','f-time','f-notes'].forEach(id => {
+    const el = document.getElementById(id); if (el) { el.value = ''; el.classList.remove('invalid'); }
+  });
+  const paxEl = document.getElementById('f-pax'); if (paxEl) { paxEl.value = '1'; paxEl.classList.remove('invalid'); }
+  document.querySelectorAll('.ferr').forEach(e => e.style.display = 'none');
+  document.querySelectorAll('.pkg-card').forEach(c => c.classList.remove('sel'));
 }
 
 // ─── VERIFY TICKET ──────────────────────────────────────────────────────────────
-function verifyTicket(){
-  const id=document.getElementById('verify-id').value.trim().toUpperCase();
-  const res=document.getElementById('verify-result');
-  const bk=DB.bookings.find(b=>b.id===id);
-  if(!bk){res.style.display='block';res.innerHTML=`<div style="background:var(--danger-light);border:1px solid rgba(192,57,43,.3);border-radius:10px;padding:16px;color:#e07070;text-align:center;"><div style="font-size:2rem;margin-bottom:8px">❌</div><strong>Ticket Not Found</strong><p style="margin-top:4px;font-size:.82rem">ID <code>${id}</code> does not exist in our system.</p></div>`;return;}
-  const ci=DB.checkedIn[id];
-  const ciStr=ci?`<div style="margin-top:8px;padding:8px 12px;background:rgba(232,184,75,.1);border-radius:8px;font-size:.78rem;color:var(--amber)">⚠️ Already checked in at ${ci}</div>`:'';
-  res.style.display='block';
-  res.innerHTML=`<div style="background:var(--success-light);border:1px solid rgba(39,174,96,.3);border-radius:10px;padding:20px;"><div style="font-size:2rem;margin-bottom:8px;text-align:center">✅</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;"><div><div class="tf-lbl">Booking ID</div><div class="tf-val" style="color:var(--cream)">${bk.id}</div></div><div><div class="tf-lbl">Name</div><div class="tf-val" style="color:var(--cream)">${bk.name}</div></div><div><div class="tf-lbl">${bk.type==='event'?'Event':'Package'}</div><div class="tf-val" style="color:var(--cream)">${bk.type==='event'?bk.event:bk.package}</div></div><div><div class="tf-lbl">Date</div><div class="tf-val" style="color:var(--cream)">${new Date(bk.date+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}</div></div><div><div class="tf-lbl">Pax</div><div class="tf-val" style="color:var(--cream)">${bk.pax}</div></div><div><div class="tf-lbl">Status</div><div class="tf-val"><span class="status-badge s-confirmed">${bk.status}</span></div></div></div>${ciStr}</div>`;
+function verifyTicket() {
+  const id  = document.getElementById('verify-id').value.trim().toUpperCase();
+  const res = document.getElementById('verify-result');
+  const bk  = DB.bookings.find(b => b.id === id);
+  res.style.display = 'block';
+  if (!bk) {
+    res.innerHTML = `<div style="background:var(--danger-light);border:1px solid rgba(192,57,43,.3);border-radius:10px;padding:16px;color:#e07070;text-align:center;"><div style="font-size:2rem;margin-bottom:8px">❌</div><strong>Ticket Not Found</strong><p style="margin-top:4px;font-size:.82rem">ID <code>${id}</code> does not exist in our system.</p></div>`;
+    return;
+  }
+  const ci    = DB.checkedIn[id];
+  const ciStr = ci ? `<div style="margin-top:8px;padding:8px 12px;background:rgba(232,184,75,.1);border-radius:8px;font-size:.78rem;color:var(--amber)">⚠️ Already checked in at ${ci}</div>` : '';
+  res.innerHTML = `<div style="background:var(--success-light);border:1px solid rgba(39,174,96,.3);border-radius:10px;padding:20px;">
+    <div style="font-size:2rem;margin-bottom:8px;text-align:center">✅</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <div><div class="tf-lbl">Booking ID</div><div class="tf-val" style="color:var(--cream)">${bk.id}</div></div>
+      <div><div class="tf-lbl">Name</div><div class="tf-val" style="color:var(--cream)">${bk.name}</div></div>
+      <div><div class="tf-lbl">${bk.type === 'event' ? 'Event' : 'Package'}</div><div class="tf-val" style="color:var(--cream)">${bk.type === 'event' ? bk.event : bk.package}</div></div>
+      <div><div class="tf-lbl">Date</div><div class="tf-val" style="color:var(--cream)">${bk.date ? new Date(bk.date + 'T12:00:00').toLocaleDateString('en-GB', {day:'numeric',month:'short',year:'numeric'}) : '—'}</div></div>
+      <div><div class="tf-lbl">Pax</div><div class="tf-val" style="color:var(--cream)">${bk.pax}</div></div>
+      <div><div class="tf-lbl">Status</div><div class="tf-val"><span class="status-badge s-confirmed">${bk.status}</span></div></div>
+    </div>${ciStr}</div>`;
 }
 
 // ─── ADMIN OVERVIEW ────────────────────────────────────────────────────────────
-function renderOverview(){
-  const total=DB.bookings.length;
-  const paid=DB.bookings.filter(b=>b.paymentStatus==='Paid').length;
-  const revenue=DB.bookings.filter(b=>b.paymentStatus==='Paid').reduce((s,b)=>s+(b.totalNum||0),0);
-  const events=DB.events.filter(e=>e.active).length;
-  document.getElementById('stats-row').innerHTML=`
+function renderOverview() {
+  const total   = DB.bookings.length;
+  const paid    = DB.bookings.filter(b => b.paymentStatus === 'Paid').length;
+  const revenue = DB.bookings.filter(b => b.paymentStatus === 'Paid').reduce((s, b) => s + (b.totalNum || 0), 0);
+  const events  = DB.events.filter(e => e.active).length;
+  document.getElementById('stats-row').innerHTML = `
     <div class="stat-card"><div class="stat-val">${total}</div><div class="stat-lbl">Total Bookings</div></div>
-    <div class="stat-card"><div class="stat-val">${paid}</div><div class="stat-lbl">Paid</div><div class="stat-delta">+${DB.bookings.filter(b=>b.paymentStatus==='Pending').length} pending</div></div>
+    <div class="stat-card"><div class="stat-val">${paid}</div><div class="stat-lbl">Paid</div><div class="stat-delta">+${DB.bookings.filter(b => b.paymentStatus === 'Pending').length} pending</div></div>
     <div class="stat-card"><div class="stat-val">$${revenue}</div><div class="stat-lbl">Revenue (USD)</div></div>
     <div class="stat-card"><div class="stat-val">${events}</div><div class="stat-lbl">Active Events</div></div>
-    <div class="stat-card"><div class="stat-val">${DB.bookings.filter(b=>b.status==='Confirmed').length}</div><div class="stat-lbl">Confirmed</div></div>`;
-  const tbody=document.getElementById('recent-tbody');
-  const recent=DB.bookings.slice(0,8);
-  if(!recent.length){tbody.innerHTML='<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--stone)">No bookings yet</td></tr>';return;}
-  tbody.innerHTML=recent.map(b=>`<tr>
+    <div class="stat-card"><div class="stat-val">${DB.bookings.filter(b => b.status === 'Confirmed').length}</div><div class="stat-lbl">Confirmed</div></div>`;
+  const tbody  = document.getElementById('recent-tbody');
+  const recent = DB.bookings.slice(0, 8);
+  if (!recent.length) { tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--stone)">No bookings yet</td></tr>'; return; }
+  tbody.innerHTML = recent.map(b => `<tr>
     <td><code style="font-size:.7rem;color:var(--sky)">${b.id}</code></td>
     <td>${b.name}</td>
-    <td>${b.type==='event'?b.event:b.package}</td>
-    <td>${b.date?new Date(b.date+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short'}):'—'}</td>
+    <td>${b.type === 'event' ? b.event : b.package}</td>
+    <td>${b.date ? new Date(b.date + 'T12:00:00').toLocaleDateString('en-GB', {day:'numeric',month:'short'}) : '—'}</td>
     <td>${b.pax}</td>
     <td style="color:var(--amber);font-family:'DM Mono',monospace">${b.total}</td>
-    <td><span class="status-badge s-${b.paymentStatus.toLowerCase()}">${b.paymentStatus}</span></td>
+    <td><span class="status-badge s-${(b.paymentStatus||'pending').toLowerCase()}">${b.paymentStatus}</span></td>
   </tr>`).join('');
 }
 
 // ─── BOOKINGS TABLE ────────────────────────────────────────────────────────────
-function renderBookingsTable(){
-  const search=(document.getElementById('bk-search')||{}).value||'';
-  const sf=(document.getElementById('bk-status')||{}).value||'';
-  let data=DB.bookings.filter(b=>{
-    const q=search.toLowerCase();
-    const match=!q||(b.name||'').toLowerCase().includes(q)||(b.email||'').toLowerCase().includes(q)||(b.id||'').toLowerCase().includes(q);
-    const smatch=!sf||b.paymentStatus===sf||b.status===sf;
-    return match&&smatch;
+function renderBookingsTable() {
+  const search = (document.getElementById('bk-search') || {}).value || '';
+  const sf     = (document.getElementById('bk-status') || {}).value || '';
+  let data = DB.bookings.filter(b => {
+    const q     = search.toLowerCase();
+    const match = !q || (b.name||'').toLowerCase().includes(q) || (b.email||'').toLowerCase().includes(q) || (b.id||'').toLowerCase().includes(q);
+    const smatch= !sf || b.paymentStatus === sf || b.status === sf;
+    return match && smatch;
   });
-  const tbody=document.getElementById('bookings-tbody');
-  if(!data.length){tbody.innerHTML='<tr><td colspan="10" style="text-align:center;padding:24px;color:var(--stone)">No bookings found</td></tr>';return;}
-  tbody.innerHTML=data.map(b=>`<tr>
+  const tbody = document.getElementById('bookings-tbody');
+  if (!data.length) { tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;padding:24px;color:var(--stone)">No bookings found</td></tr>'; return; }
+  tbody.innerHTML = data.map(b => `<tr>
     <td><code style="font-size:.68rem;color:var(--sky)">${b.id}</code></td>
-    <td style="font-size:.72rem">${new Date(b.created).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'2-digit'})}</td>
+    <td style="font-size:.72rem">${new Date(b.created).toLocaleDateString('en-GB', {day:'numeric',month:'short',year:'2-digit'})}</td>
     <td>${b.name}</td>
     <td style="font-size:.75rem">${b.email}</td>
-    <td style="font-size:.75rem">${b.type==='event'?b.event:b.package}</td>
-    <td>${b.date?new Date(b.date+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short'}):'—'}</td>
+    <td style="font-size:.75rem">${b.type === 'event' ? b.event : b.package}</td>
+    <td>${b.date ? new Date(b.date + 'T12:00:00').toLocaleDateString('en-GB', {day:'numeric',month:'short'}) : '—'}</td>
     <td>${b.pax}</td>
     <td style="color:var(--amber);font-family:'DM Mono',monospace;font-size:.78rem">${b.total}</td>
-    <td><span class="status-badge s-${b.paymentStatus.toLowerCase()}">${b.paymentStatus}</span></td>
+    <td><span class="status-badge s-${(b.paymentStatus||'pending').toLowerCase()}">${b.paymentStatus}</span></td>
     <td><div class="action-row">
       <button class="btn btn-xs btn-primary" onclick="openBookingDetail('${b.id}')">View</button>
       <button class="btn btn-xs btn-gold" onclick="confirmPayment('${b.id}')">💳 Pay</button>
@@ -1134,53 +1175,111 @@ function renderBookingsTable(){
 }
 
 // ─── EVENTS ADMIN ──────────────────────────────────────────────────────────────
-function renderEventsAdmin(){
-  const wrap=document.getElementById('events-list-admin');
-  if(!DB.events.length){wrap.innerHTML='<div class="empty-state"><div class="ei">🎪</div><p>No events created yet.</p></div>';return;}
-  wrap.innerHTML=DB.events.map(e=>`
+function renderEventsAdmin() {
+  const wrap = document.getElementById('events-list-admin');
+  if (!DB.events.length) { wrap.innerHTML = '<div class="empty-state"><div class="ei">🎪</div><p>No events created yet.</p></div>'; return; }
+  wrap.innerHTML = DB.events.map(e => `
     <div class="event-admin-card" id="eac-${e.id}">
       <div class="event-admin-head">
         <div>
           <div class="event-admin-title">${e.icon} ${e.name}</div>
           <div class="event-meta">
-            <div class="event-meta-item">📅 <strong>${new Date(e.date+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}</strong></div>
+            <div class="event-meta-item">📅 <strong>${new Date(e.date + 'T12:00:00').toLocaleDateString('en-GB', {day:'numeric',month:'short',year:'numeric'})}</strong></div>
             <div class="event-meta-item">⏱ <strong>${e.time} · ${e.duration}</strong></div>
             <div class="event-meta-item">👥 <strong>${e.booked}/${e.spots}</strong> booked</div>
             <div class="event-meta-item">💰 From <strong>$${e.pi}</strong></div>
           </div>
         </div>
-        <div class="action-row">
-          <label class="prod-toggle" style="margin-top:6px">
-            <input type="checkbox" ${e.active?'checked':''} onchange="toggleEvent('${e.id}',this.checked)">
+        <div class="action-row" style="align-items:center">
+          <label class="prod-toggle">
+            <input type="checkbox" ${e.active ? 'checked' : ''} onchange="toggleEvent('${e.id}',this.checked)">
             <span class="toggle-slider"></span>
           </label>
+          <button class="btn btn-xs btn-primary" onclick="openEditEventModal('${e.id}')">✏️ Edit</button>
           <button class="btn btn-xs btn-danger" onclick="deleteEvent('${e.id}')">Delete</button>
         </div>
       </div>
     </div>`).join('');
 }
 
-function toggleNewEventForm(){
-  const el=document.getElementById('new-event-form-wrap');
-  el.style.display=el.style.display==='none'?'block':'none';
-  if(el.style.display==='block') document.getElementById('nef-date').min=new Date().toISOString().split('T')[0];
+// ─── EDIT EVENT MODAL ──────────────────────────────────────────────────────────
+function openEditEventModal(id) {
+  const ev = DB.events.find(e => e.id === id);
+  if (!ev) return;
+  openModal(`
+    <div class="modal-title">✏️ Edit Event</div>
+    <div class="fgrid">
+      <div class="fg"><label>Event Name *</label><input id="ee-name" class="fc" value="${esc(ev.name)}"></div>
+      <div class="fg"><label>Icon (emoji)</label><input id="ee-icon" class="fc" value="${esc(ev.icon)}" maxlength="4"></div>
+      <div class="fg"><label>Date *</label><input type="date" id="ee-date" class="fc" value="${ev.date}"></div>
+      <div class="fg"><label>Check-in Time</label><input id="ee-time" class="fc" value="${esc(ev.time)}"></div>
+      <div class="fg"><label>Duration</label><input id="ee-duration" class="fc" value="${esc(ev.duration)}"></div>
+      <div class="fg"><label>Total Spots</label><input type="number" id="ee-spots" class="fc" value="${ev.spots}" min="1"></div>
+      <div class="fg"><label>Price (Intl $)</label><input type="number" id="ee-pi" class="fc" value="${ev.pi}"></div>
+      <div class="fg"><label>Price (Resident $)</label><input type="number" id="ee-pr" class="fc" value="${ev.pr}"></div>
+      <div class="fg"><label>Price (Domestic RWF)</label><input type="number" id="ee-pd" class="fc" value="${ev.pd}"></div>
+      <div class="fg full"><label>Description</label><textarea id="ee-desc" class="fc" rows="3">${esc(ev.desc)}</textarea></div>
+    </div>
+    <div class="brow">
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-gold" onclick="saveEditEvent('${id}')">💾 Save Changes</button>
+    </div>`);
 }
 
-function createNewEvent(){
-  const name=document.getElementById('nef-name').value.trim();
-  const date=document.getElementById('nef-date').value;
-  if(!name||!date){toast('Name and date are required','error');return;}
-  const ev={
-    id:'EVT'+Date.now(),name,icon:document.getElementById('nef-icon').value||'🎪',
-    date,time:document.getElementById('nef-time').value||'TBD',
-    duration:document.getElementById('nef-duration').value||'TBD',
-    desc:document.getElementById('nef-desc').value||'',
-    spots:parseInt(document.getElementById('nef-spots').value)||30,
-    booked:0,
-    pi:parseFloat(document.getElementById('nef-price-i').value)||25,
-    pr:parseFloat(document.getElementById('nef-price-r').value)||20,
-    pd:parseInt(document.getElementById('nef-price-d').value)||15000,
-    active:true
+function saveEditEvent(id) {
+  const ev   = DB.events.find(e => e.id === id);
+  if (!ev) return;
+  const name = document.getElementById('ee-name').value.trim();
+  const date = document.getElementById('ee-date').value;
+  if (!name || !date) { toast('Name and date are required', 'error'); return; }
+  ev.name     = name;
+  ev.icon     = document.getElementById('ee-icon').value || '🎪';
+  ev.date     = date;
+  ev.time     = document.getElementById('ee-time').value || 'TBD';
+  ev.duration = document.getElementById('ee-duration').value || 'TBD';
+  ev.spots    = parseInt(document.getElementById('ee-spots').value) || ev.spots;
+  ev.pi       = parseFloat(document.getElementById('ee-pi').value) || 0;
+  ev.pr       = parseFloat(document.getElementById('ee-pr').value) || 0;
+  ev.pd       = parseInt(document.getElementById('ee-pd').value) || 0;
+  ev.desc     = document.getElementById('ee-desc').value;
+  saveDB();
+  closeModal();
+  renderEventsAdmin();
+  renderEventsGrid();
+  toast('Event updated! ✓');
+}
+
+function esc(str) {
+  return (str || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function toggleNewEventForm() {
+  const el = document.getElementById('new-event-form-wrap');
+  el.style.display = el.style.display === 'none' ? 'block' : 'none';
+  if (el.style.display === 'block') {
+    const dateEl = document.getElementById('nef-date');
+    if (dateEl) dateEl.min = new Date().toISOString().split('T')[0];
+  }
+}
+
+function createNewEvent() {
+  const name = document.getElementById('nef-name').value.trim();
+  const date = document.getElementById('nef-date').value;
+  if (!name || !date) { toast('Name and date are required', 'error'); return; }
+  const ev = {
+    id: 'EVT' + Date.now(),
+    name,
+    icon:     document.getElementById('nef-icon').value || '🎪',
+    date,
+    time:     document.getElementById('nef-time').value || 'TBD',
+    duration: document.getElementById('nef-duration').value || 'TBD',
+    desc:     document.getElementById('nef-desc').value || '',
+    spots:    parseInt(document.getElementById('nef-spots').value) || 30,
+    booked:   0,
+    pi:       parseFloat(document.getElementById('nef-price-i').value) || 25,
+    pr:       parseFloat(document.getElementById('nef-price-r').value) || 20,
+    pd:       parseInt(document.getElementById('nef-price-d').value) || 15000,
+    active:   true,
   };
   DB.events.unshift(ev);
   saveDB();
@@ -1188,29 +1287,36 @@ function createNewEvent(){
   renderEventsGrid();
   updateEventsBadge();
   toggleNewEventForm();
+  // Reset new event form fields
+  ['nef-name','nef-time','nef-duration','nef-desc'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+  document.getElementById('nef-icon').value = '🎪';
+  document.getElementById('nef-spots').value = '30';
+  document.getElementById('nef-price-i').value = '25';
+  document.getElementById('nef-price-r').value = '20';
+  document.getElementById('nef-price-d').value = '15000';
   toast('Event created! 🎪');
 }
 
-function toggleEvent(id,val){
-  const ev=DB.events.find(e=>e.id===id);
-  if(ev){ ev.active=val; saveDB(); renderEventsGrid(); updateEventsBadge(); toast(val?'Event activated':'Event hidden'); }
+function toggleEvent(id, val) {
+  const ev = DB.events.find(e => e.id === id);
+  if (ev) { ev.active = val; saveDB(); renderEventsGrid(); updateEventsBadge(); toast(val ? 'Event activated' : 'Event hidden'); }
 }
 
-function deleteEvent(id){
-  if(!confirm('Delete this event?')) return;
-  DB.events=DB.events.filter(e=>e.id!==id);
+function deleteEvent(id) {
+  if (!confirm('Delete this event?')) return;
+  DB.events = DB.events.filter(e => e.id !== id);
   saveDB(); renderEventsAdmin(); renderEventsGrid(); updateEventsBadge(); toast('Event deleted');
 }
 
 // ─── PRODUCTS ──────────────────────────────────────────────────────────────────
-function renderProductCards(){
-  const wrap=document.getElementById('prod-cards');
-  wrap.innerHTML=DB.products.map((p,i)=>`
+function renderProductCards() {
+  const wrap = document.getElementById('prod-cards');
+  wrap.innerHTML = DB.products.map((p, i) => `
     <div class="prod-card">
       <div class="prod-card-head">
         <div class="prod-card-name"><span>${p.icon}</span>${p.name}</div>
         <label class="prod-toggle">
-          <input type="checkbox" ${p.active?'checked':''} onchange="toggleProd(${i},this.checked)">
+          <input type="checkbox" ${p.active ? 'checked' : ''} onchange="toggleProd(${i},this.checked)">
           <span class="toggle-slider"></span>
         </label>
       </div>
@@ -1219,69 +1325,76 @@ function renderProductCards(){
       ${p.contactForPrice
         ? `<div style="font-size:.75rem;color:var(--amber);margin-bottom:10px;font-family:'DM Mono',monospace">📞 Contact-for-price package</div>`
         : `<div class="price-editor">
-          <div class="pe-group"><label>Intl ($)</label><input type="number" class="fc" id="pp-i-${i}" value="${p.pi}" min="0"></div>
-          <div class="pe-group"><label>Resident ($)</label><input type="number" class="fc" id="pp-r-${i}" value="${p.pr}" min="0"></div>
-          <div class="pe-group"><label>Domestic (RWF)</label><input type="number" class="fc" id="pp-d-${i}" value="${p.pd}" min="0"></div>
-        </div>
-        <button class="btn btn-primary btn-sm save-prod" onclick="saveProd(${i})">💾 Save Pricing</button>`
+            <div class="pe-group"><label>Intl ($)</label><input type="number" class="fc" id="pp-i-${i}" value="${p.pi}" min="0"></div>
+            <div class="pe-group"><label>Resident ($)</label><input type="number" class="fc" id="pp-r-${i}" value="${p.pr}" min="0"></div>
+            <div class="pe-group"><label>Domestic (RWF)</label><input type="number" class="fc" id="pp-d-${i}" value="${p.pd}" min="0"></div>
+          </div>
+          <button class="btn btn-primary btn-sm save-prod" onclick="saveProd(${i})">💾 Save Pricing</button>`
       }
     </div>`).join('');
 }
 
-function toggleProd(i,val){ DB.products[i].active=val; saveDB(); renderPkgGrid(); toast(val?'Product activated':'Product hidden'); }
+function toggleProd(i, val) { DB.products[i].active = val; saveDB(); renderPkgGrid(); toast(val ? 'Product activated' : 'Product hidden'); }
 
-function saveProd(i){
-  if(DB.products[i].contactForPrice){ toast('This package uses custom pricing'); return; }
-  DB.products[i].pi=parseFloat(document.getElementById(`pp-i-${i}`).value)||0;
-  DB.products[i].pr=parseFloat(document.getElementById(`pp-r-${i}`).value)||0;
-  DB.products[i].pd=parseInt(document.getElementById(`pp-d-${i}`).value)||0;
+function saveProd(i) {
+  if (DB.products[i].contactForPrice) { toast('This package uses custom pricing'); return; }
+  const pi = document.getElementById(`pp-i-${i}`);
+  const pr = document.getElementById(`pp-r-${i}`);
+  const pd = document.getElementById(`pp-d-${i}`);
+  if (pi) DB.products[i].pi = parseFloat(pi.value) || 0;
+  if (pr) DB.products[i].pr = parseFloat(pr.value) || 0;
+  if (pd) DB.products[i].pd = parseInt(pd.value) || 0;
   saveDB(); renderPkgGrid(); toast('Pricing updated! ✓');
 }
 
-function saveAllProducts(){
-  DB.products.forEach((_,i)=>{
-    if(DB.products[i].contactForPrice) return;
-    const pi=document.getElementById(`pp-i-${i}`),pr=document.getElementById(`pp-r-${i}`),pd=document.getElementById(`pp-d-${i}`);
-    if(pi) DB.products[i].pi=parseFloat(pi.value)||0;
-    if(pr) DB.products[i].pr=parseFloat(pr.value)||0;
-    if(pd) DB.products[i].pd=parseInt(pd.value)||0;
+function saveAllProducts() {
+  DB.products.forEach((_, i) => {
+    if (DB.products[i].contactForPrice) return;
+    const pi = document.getElementById(`pp-i-${i}`);
+    const pr = document.getElementById(`pp-r-${i}`);
+    const pd = document.getElementById(`pp-d-${i}`);
+    if (pi) DB.products[i].pi = parseFloat(pi.value) || 0;
+    if (pr) DB.products[i].pr = parseFloat(pr.value) || 0;
+    if (pd) DB.products[i].pd = parseInt(pd.value) || 0;
   });
   saveDB(); renderPkgGrid(); toast('All pricing saved! 💾');
 }
 
 // ─── PAYMENTS ──────────────────────────────────────────────────────────────────
-function renderPaymentsTable(){
-  const sf=(document.getElementById('pay-filter')||{}).value||'';
-  let data=DB.bookings.filter(b=>!sf||b.paymentStatus===sf);
-  const paid=DB.bookings.filter(b=>b.paymentStatus==='Paid');
-  const pending=DB.bookings.filter(b=>b.paymentStatus==='Pending');
-  const totalRev=paid.reduce((s,b)=>s+(b.totalNum||0),0);
-  document.getElementById('payment-stats').innerHTML=`
+function renderPaymentsTable() {
+  const sf   = (document.getElementById('pay-filter') || {}).value || '';
+  let data   = DB.bookings.filter(b => !sf || b.paymentStatus === sf);
+  const paid    = DB.bookings.filter(b => b.paymentStatus === 'Paid');
+  const pending = DB.bookings.filter(b => b.paymentStatus === 'Pending');
+  const totalRev= paid.reduce((s, b) => s + (b.totalNum || 0), 0);
+  document.getElementById('payment-stats').innerHTML = `
     <div class="stat-card"><div class="stat-val">${pending.length}</div><div class="stat-lbl">Pending Payments</div></div>
     <div class="stat-card"><div class="stat-val">${paid.length}</div><div class="stat-lbl">Confirmed Paid</div></div>
     <div class="stat-card"><div class="stat-val">$${totalRev.toLocaleString()}</div><div class="stat-lbl">Total Revenue</div></div>`;
-  const tbody=document.getElementById('payments-tbody');
-  if(!data.length){tbody.innerHTML='<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--stone)">No records</td></tr>';return;}
-  tbody.innerHTML=data.map(b=>`<tr>
+  const tbody = document.getElementById('payments-tbody');
+  if (!data.length) { tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--stone)">No records</td></tr>'; return; }
+  tbody.innerHTML = data.map(b => `<tr>
     <td><code style="font-size:.68rem;color:var(--sky)">${b.id}</code></td>
     <td>${b.name}</td>
     <td style="color:var(--amber);font-family:'DM Mono',monospace">${b.total}</td>
-    <td>${b.paymentMethod||'—'}</td>
-    <td><span class="status-badge s-${b.paymentStatus.toLowerCase()}">${b.paymentStatus}</span></td>
+    <td>${b.paymentMethod || '—'}</td>
+    <td><span class="status-badge s-${(b.paymentStatus||'pending').toLowerCase()}">${b.paymentStatus}</span></td>
     <td><div class="action-row">
-      ${b.paymentStatus!=='Paid'?`<button class="btn btn-xs btn-primary" onclick="confirmPayment('${b.id}')">✓ Confirm Paid</button>`:''}
-      ${b.paymentStatus==='Paid'?`<button class="btn btn-xs btn-ghost" onclick="refundBooking('${b.id}')">↩ Refund</button>`:''}
+      ${b.paymentStatus !== 'Paid' ? `<button class="btn btn-xs btn-primary" onclick="confirmPayment('${b.id}')">✓ Confirm Paid</button>` : ''}
+      ${b.paymentStatus === 'Paid' ? `<button class="btn btn-xs btn-ghost" onclick="refundBooking('${b.id}')">↩ Refund</button>` : ''}
     </div></td>
   </tr>`).join('');
 }
 
-function confirmPayment(id){
+// ─── PAYMENT CONFIRM MODAL ─────────────────────────────────────────────────────
+function confirmPayment(id) {
+  selMethod = 'Cash'; // reset each time modal opens
   openModal(`
     <div class="modal-title">💳 Confirm Payment</div>
     <p style="color:var(--mist);font-size:.85rem;margin-bottom:16px">Select the payment method used for booking <code style="color:var(--sky)">${id}</code></p>
     <div class="payment-methods" id="pm-grid">
       <div class="pm-btn" onclick="selPayMethod(this,'Mobile Money')"><span class="pm-icon">📱</span>Mobile Money<br><small style="font-size:.68rem;color:var(--stone)">MTN / Airtel</small></div>
-      <div class="pm-btn" onclick="selPayMethod(this,'Cash')"><span class="pm-icon">💵</span>Cash</div>
+      <div class="pm-btn sel" onclick="selPayMethod(this,'Cash')"><span class="pm-icon">💵</span>Cash</div>
       <div class="pm-btn" onclick="selPayMethod(this,'Bank Transfer')"><span class="pm-icon">🏦</span>Bank Transfer</div>
       <div class="pm-btn" onclick="selPayMethod(this,'Card')"><span class="pm-icon">💳</span>Credit Card</div>
     </div>
@@ -1293,115 +1406,139 @@ function confirmPayment(id){
     </div>`);
 }
 
-let selMethod='Cash';
-function selPayMethod(el,method){
-  document.querySelectorAll('.pm-btn').forEach(b=>b.classList.remove('sel'));
+function selPayMethod(el, method) {
+  document.querySelectorAll('.pm-btn').forEach(b => b.classList.remove('sel'));
   el.classList.add('sel');
-  selMethod=method;
+  selMethod = method;
 }
 
-function doConfirmPayment(id){
-  const bk=DB.bookings.find(b=>b.id===id);
-  if(!bk) return;
-  bk.paymentStatus='Paid';
-  bk.paymentMethod=selMethod;
-  bk.paymentRef=document.getElementById('pay-ref')?.value||'';
-  bk.paymentDate=new Date().toISOString();
+function doConfirmPayment(id) {
+  const bk = DB.bookings.find(b => b.id === id);
+  if (!bk) return;
+  bk.paymentStatus  = 'Paid';
+  bk.paymentMethod  = selMethod;
+  bk.paymentRef     = (document.getElementById('pay-ref') || {}).value || '';
+  bk.paymentDate    = new Date().toISOString();
   saveDB();
-  closeModal(); renderBookingsTable(); renderPaymentsTable(); renderOverview();
-  toast('Payment confirmed! ✓','success');
+  closeModal();
+  renderBookingsTable();
+  renderPaymentsTable();
+  renderOverview();
+  toast('Payment confirmed! ✓', 'success');
 }
 
-function refundBooking(id){
-  const bk=DB.bookings.find(b=>b.id===id);
-  if(!bk) return;
-  bk.paymentStatus='Refunded';
+function refundBooking(id) {
+  const bk = DB.bookings.find(b => b.id === id);
+  if (!bk) return;
+  bk.paymentStatus = 'Refunded';
   saveDB(); renderPaymentsTable(); renderOverview();
   toast('Marked as refunded');
 }
 
-function cancelBooking(id){
-  if(!confirm('Cancel this booking?')) return;
-  const bk=DB.bookings.find(b=>b.id===id);
-  if(bk){ bk.status='Cancelled'; saveDB(); renderBookingsTable(); toast('Booking cancelled'); }
+function cancelBooking(id) {
+  if (!confirm('Cancel this booking?')) return;
+  const bk = DB.bookings.find(b => b.id === id);
+  if (bk) { bk.status = 'Cancelled'; saveDB(); renderBookingsTable(); toast('Booking cancelled'); }
 }
 
 // ─── BOOKING DETAIL MODAL ──────────────────────────────────────────────────────
-function openBookingDetail(id){
-  const bk=DB.bookings.find(b=>b.id===id);
-  if(!bk) return;
-  const rows=[
-    ['Booking ID',`<code style="color:var(--sky)">${bk.id}</code>`],
-    ['Name',bk.name],['Email',bk.email],['Phone',bk.phone],
-    ['Type',bk.type==='event'?`🎪 Event: ${bk.event}`:`🥾 Activity: ${bk.package}`],
-    ['Date',bk.date?new Date(bk.date+'T12:00:00').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'}):'—'],
-    ['Time',bk.time||'—'],['Passengers',bk.pax],
-    ['Visitor Type',bk.vtype||'—'],['Total',`<strong style="color:var(--amber)">${bk.total}</strong>`],
-    ['Booking Status',`<span class="status-badge s-confirmed">${bk.status}</span>`],
-    ['Payment Status',`<span class="status-badge s-${bk.paymentStatus.toLowerCase()}">${bk.paymentStatus}</span>`],
-    ['Notes',bk.notes||'—'],
-    ['Created',new Date(bk.created).toLocaleString()],
+function openBookingDetail(id) {
+  const bk = DB.bookings.find(b => b.id === id);
+  if (!bk) return;
+  const rows = [
+    ['Booking ID', `<code style="color:var(--sky)">${bk.id}</code>`],
+    ['Name', bk.name], ['Email', bk.email], ['Phone', bk.phone],
+    ['Type', bk.type === 'event' ? `🎪 Event: ${bk.event}` : `🥾 Activity: ${bk.package}`],
+    ['Date', bk.date ? new Date(bk.date + 'T12:00:00').toLocaleDateString('en-GB', {weekday:'long',day:'numeric',month:'long',year:'numeric'}) : '—'],
+    ['Time', bk.time || '—'], ['Passengers', bk.pax],
+    ['Visitor Type', bk.vtype || '—'],
+    ['Total', `<strong style="color:var(--amber)">${bk.total}</strong>`],
+    ['Booking Status', `<span class="status-badge s-confirmed">${bk.status}</span>`],
+    ['Payment Status', `<span class="status-badge s-${(bk.paymentStatus||'pending').toLowerCase()}">${bk.paymentStatus}</span>`],
+    ['Notes', bk.notes || '—'],
+    ['Created', new Date(bk.created).toLocaleString()],
   ];
   openModal(`<div class="modal-title">📋 Booking Details</div>
-    ${rows.map(([l,v])=>`<div class="detail-row"><div class="detail-lbl">${l}</div><div class="detail-val">${v}</div></div>`).join('')}
+    ${rows.map(([l, v]) => `<div class="detail-row"><div class="detail-lbl">${l}</div><div class="detail-val">${v}</div></div>`).join('')}
     <div class="brow" style="margin-top:16px;">
-      ${bk.paymentStatus!=='Paid'?`<button class="btn btn-gold btn-sm" onclick="closeModal();confirmPayment('${bk.id}')">💳 Confirm Payment</button>`:''}
+      ${bk.paymentStatus !== 'Paid' ? `<button class="btn btn-gold btn-sm" onclick="closeModal();confirmPayment('${bk.id}')">💳 Confirm Payment</button>` : ''}
       <button class="btn btn-ghost btn-sm" onclick="closeModal()">Close</button>
     </div>`);
 }
 
 // ─── TICKET SCANNER ────────────────────────────────────────────────────────────
-function scanTicket(){
-  const id=document.getElementById('scan-id').value.trim().toUpperCase();
-  const bk=DB.bookings.find(b=>b.id===id);
-  const res=document.getElementById('scan-result');
-  if(!bk){res.innerHTML=`<div style="background:var(--danger-light);border:1px solid rgba(192,57,43,.3);border-radius:10px;padding:16px;text-align:center;color:#e07070"><div style="font-size:2.5rem">❌</div><strong>Ticket Not Found</strong></div>`;return;}
-  if(DB.checkedIn[id]){res.innerHTML=`<div style="background:var(--warning-light);border:1px solid rgba(243,156,18,.2);border-radius:10px;padding:16px;color:var(--warning)"><div style="font-size:2.5rem;text-align:center">⚠️</div><p style="text-align:center"><strong>Already Checked In</strong><br><small>${DB.checkedIn[id]}</small></p></div>`;return;}
-  DB.checkedIn[id]=new Date().toLocaleString();
+function scanTicket() {
+  const id  = document.getElementById('scan-id').value.trim().toUpperCase();
+  const bk  = DB.bookings.find(b => b.id === id);
+  const res = document.getElementById('scan-result');
+  if (!bk) {
+    res.innerHTML = `<div style="background:var(--danger-light);border:1px solid rgba(192,57,43,.3);border-radius:10px;padding:16px;text-align:center;color:#e07070"><div style="font-size:2.5rem">❌</div><strong>Ticket Not Found</strong></div>`;
+    return;
+  }
+  if (DB.checkedIn[id]) {
+    res.innerHTML = `<div style="background:var(--warning-light);border:1px solid rgba(243,156,18,.2);border-radius:10px;padding:16px;color:var(--warning)"><div style="font-size:2.5rem;text-align:center">⚠️</div><p style="text-align:center"><strong>Already Checked In</strong><br><small>${DB.checkedIn[id]}</small></p></div>`;
+    return;
+  }
+  DB.checkedIn[id] = new Date().toLocaleString();
   saveDB();
-  res.innerHTML=`<div style="background:var(--success-light);border:1px solid rgba(39,174,96,.3);border-radius:10px;padding:20px;text-align:center"><div style="font-size:3rem">✅</div><strong style="font-size:1.1rem;font-family:'Playfair Display',serif">${bk.name}</strong><p style="color:var(--mist);margin-top:4px;font-size:.85rem">${bk.type==='event'?bk.event:bk.package} · ${bk.pax} person(s)</p><p style="color:var(--sage);font-family:'DM Mono',monospace;font-size:.72rem;margin-top:8px">Checked in at ${DB.checkedIn[id]}</p></div>`;
-  toast('✅ Check-in successful!','success');
+  res.innerHTML = `<div style="background:var(--success-light);border:1px solid rgba(39,174,96,.3);border-radius:10px;padding:20px;text-align:center">
+    <div style="font-size:3rem">✅</div>
+    <strong style="font-size:1.1rem;font-family:'Playfair Display',serif">${bk.name}</strong>
+    <p style="color:var(--mist);margin-top:4px;font-size:.85rem">${bk.type === 'event' ? bk.event : bk.package} · ${bk.pax} person(s)</p>
+    <p style="color:var(--sage);font-family:'DM Mono',monospace;font-size:.72rem;margin-top:8px">Checked in at ${DB.checkedIn[id]}</p>
+  </div>`;
+  toast('✅ Check-in successful!', 'success');
 }
 
-function scanVerifyOnly(){
-  document.getElementById('verify-id').value=document.getElementById('scan-id').value;
-  showTab('verify'); verifyTicket();
+function scanVerifyOnly() {
+  const scanVal = document.getElementById('scan-id').value;
+  document.getElementById('verify-id').value = scanVal;
+  showTab('verify');
+  verifyTicket();
 }
 
 // ─── EXPORT CSV ────────────────────────────────────────────────────────────────
-function exportCSV(){
-  const headers=['ID','Created','Name','Email','Phone','Type','Package/Event','Date','Time','Pax','Visitor Type','Total','Payment Status','Payment Method','Notes'];
-  const rows=DB.bookings.map(b=>[b.id,b.created,b.name,b.email,b.phone,b.type,b.type==='event'?b.event:b.package,b.date,b.time,b.pax,b.vtype,b.total,b.paymentStatus,b.paymentMethod||'',b.notes||''].map(v=>`"${(v||'').toString().replace(/"/g,'""')}"`).join(','));
-  const csv=[headers.join(','),...rows].join('\n');
-  const blob=new Blob([csv],{type:'text/csv'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');a.href=url;a.download=`nengo-bookings-${new Date().toISOString().split('T')[0]}.csv`;a.click();
+function exportCSV() {
+  const headers = ['ID','Created','Name','Email','Phone','Type','Package/Event','Date','Time','Pax','Visitor Type','Total','Payment Status','Payment Method','Notes'];
+  const rows = DB.bookings.map(b => [
+    b.id, b.created, b.name, b.email, b.phone, b.type,
+    b.type === 'event' ? b.event : b.package,
+    b.date, b.time, b.pax, b.vtype, b.total, b.paymentStatus, b.paymentMethod || '', b.notes || ''
+  ].map(v => `"${(v || '').toString().replace(/"/g, '""')}"`).join(','));
+  const csv = [headers.join(','), ...rows].join('\n');
+  const blob = new Blob([csv], {type: 'text/csv'});
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url; a.download = `nengo-bookings-${new Date().toISOString().split('T')[0]}.csv`; a.click();
   URL.revokeObjectURL(url);
   toast('CSV exported! ⬇');
 }
 
 // ─── MODAL ─────────────────────────────────────────────────────────────────────
-function openModal(html){
-  document.getElementById('modal-content').innerHTML=html;
+function openModal(html) {
+  document.getElementById('modal-content').innerHTML = html;
   document.getElementById('modal-bg').classList.add('open');
 }
-function closeModal(){ document.getElementById('modal-bg').classList.remove('open'); }
+function closeModal() { document.getElementById('modal-bg').classList.remove('open'); }
 
 // ─── TOAST ─────────────────────────────────────────────────────────────────────
 let toastTimer;
-function toast(msg,type='success'){
-  const el=document.getElementById('toast');
-  el.textContent=msg;
-  el.className='toast show '+type;
+function toast(msg, type = 'success') {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.className = 'toast show ' + type;
   clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>el.classList.remove('show'),3000);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 3000);
 }
 
 // ─── SHARE TICKET ──────────────────────────────────────────────────────────────
-function shareTicket(){
-  if(navigator.share&&lastTicketId){
-    navigator.share({title:'Nengo Hill Ticket',text:`My ticket ID: ${lastTicketId}. See you at Nengo Hill!`,url:window.location.href});
-  } else { toast('Ticket ID: '+lastTicketId+' (copied!)'); navigator.clipboard?.writeText(lastTicketId||''); }
+function shareTicket() {
+  if (navigator.share && lastTicketId) {
+    navigator.share({title:'Nengo Hill Ticket', text:`My ticket ID: ${lastTicketId}. See you at Nengo Hill!`, url: window.location.href});
+  } else {
+    toast('Ticket ID: ' + lastTicketId + ' (copied!)');
+    if (navigator.clipboard && lastTicketId) navigator.clipboard.writeText(lastTicketId);
+  }
 }
 </script>
 </body>
